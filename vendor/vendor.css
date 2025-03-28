@@ -1,0 +1,227 @@
+/* Vendor Dashboard Styles */
+.vendor-container {
+    display: flex;
+    min-height: 100vh;
+    background: #f8f9fa;
+}
+
+/*Oladoyin Daniel Codes @08125268335*/
+
+.vendor-sidebar {
+    width: 280px;
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #34495e;
+}
+
+.vendor-rating {
+    color: #f1c40f;
+    font-size: 0.9rem;
+}
+
+.sidebar-nav {
+    margin: 20px 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    color: #bdc3c7;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.sidebar-nav a.active,
+.sidebar-nav a:hover {
+    background: #34495e;
+    color: white;
+}
+
+.vendor-content {
+    flex: 1;
+    padding: 25px;
+}
+
+.vendor-header {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.header-stats {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.stat-item {
+    flex: 1;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+.stat-label {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Inventory Management */
+.inventory-management table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.inventory-management th {
+    background: #f8f9fa;
+    padding: 12px;
+    text-align: left;
+}
+
+.inventory-management td {
+    padding: 12px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.stock-level {
+    position: relative;
+    width: 100px;
+}
+
+.stock-bar {
+    position: absolute;
+    height: 4px;
+    background: #2ecc71;
+    border-radius: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Order Management */
+.order-item {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border-left: 4px solid;
+}
+
+.order-item.pending { border-color: #f1c40f; }
+.order-item.processing { border-color: #3498db; }
+.order-item.completed { border-color: #2ecc71; }
+
+.order-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.btn-process {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Reviews */
+.review-item {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-info img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.rating {
+    color: #f1c40f;
+}
+
+/* Charts */
+.chart-container {
+    margin-top: 20px;
+    height: 300px;
+}
+
+@media (max-width: 1200px) {
+    .vendor-container {
+        flex-direction: column;
+    }
+    
+    .vendor-sidebar {
+        width: 100%;
+        height: auto;
+    }
+    
+    .header-stats {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .inventory-management table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .order-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+/*Oladoyin Daniel Codes @08125268335*/

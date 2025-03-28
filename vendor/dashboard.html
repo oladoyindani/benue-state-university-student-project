@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vendor Dashboard</title>
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="vendor.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<!-- Oladoyin Daniel Codes @08125268335 -->
+<body>
+    <div class="vendor-container">
+        <!-- Sidebar -->
+        <aside class="vendor-sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-store"></i> Campus Kitchen</h2>
+                <p class="vendor-rating">⭐ 4.5 (128 reviews)</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="#inventory"><i class="fas fa-boxes"></i> Inventory</a>
+                <a href="#orders"><i class="fas fa-shopping-cart"></i> Orders</a>
+                <a href="#analytics"><i class="fas fa-chart-line"></i> Analytics</a>
+                <a href="#reviews"><i class="fas fa-comments"></i> Reviews</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="vendor-content">
+            <!-- Header -->
+            <header class="vendor-header">
+                <div class="header-info">
+                    <h1>Vendor Dashboard</h1>
+                    <p class="current-balance">Available Balance: ₦245,800</p>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-utensils"></i>
+                        <div>
+                            <span class="stat-value">42</span>
+                            <span class="stat-label">Total Items</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span class="stat-value">15</span>
+                            <span class="stat-label">Pending Orders</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <span class="stat-value">89%</span>
+                            <span class="stat-label">Completion Rate</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <section class="dashboard-content">
+                <!-- Sales Overview -->
+                <div class="card sales-overview">
+                    <h3><i class="fas fa-chart-line"></i> Sales Overview</h3>
+                    <div class="chart-container">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Inventory Management -->
+                <div class="card inventory-management">
+                    <div class="card-header">
+                        <h3><i class="fas fa-box-open"></i> Inventory</h3>
+                        <div class="inventory-actions">
+                            <input type="text" placeholder="Search items..." class="search-input">
+                            <button class="btn-add-item"><i class="fas fa-plus"></i> Add Item</button>
+                        </div>
+                    </div>
+                    <div class="inventory-list">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Sales (7d)</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="item-info">
+                                            <img src="food-placeholder.jpg" alt="Jollof Rice">
+                                            <span>Jollof Rice</span>
+                                        </div>
+                                    </td>
+                                    <td>₦500</td>
+                                    <td class="stock-level">
+                                        <div class="stock-bar" style="width: 65%"></div>
+                                        <span>42 left</span>
+                                    </td>
+                                    <td>128 sold</td>
+                                    <td>
+                                        <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-restock"><i class="fas fa-undo"></i></button>
+                                    </td>
+                                </tr>
+                                <!-- More inventory items -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Order Management -->
+                <div class="card order-management">
+                    <h3><i class="fas fa-tasks"></i> Recent Orders</h3>
+                    <div class="order-filters">
+                        <button class="filter-btn active">All (45)</button>
+                        <button class="filter-btn">Pending (15)</button>
+                        <button class="filter-btn">Processing (10)</button>
+                        <button class="filter-btn">Completed (20)</button>
+                    </div>
+                    <div class="order-list">
+                        <div class="order-item pending">
+                            <div class="order-info">
+                                <span class="order-id">#ORD-1001</span>
+                                <span class="customer">John D. · 2 items</span>
+                                <span class="order-time">12:45 PM</span>
+                            </div>
+                            <div class="order-details">
+                                <div class="items-list">
+                                    <span>Jollof Rice ×2</span>
+                                    <span>Bottled Water ×1</span>
+                                </div>
+                                <div class="order-actions">
+                                    <span class="order-total">₦1,200</span>
+                                    <button class="btn-process">Start Preparing</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More order items -->
+                    </div>
+                </div>
+
+                <!-- Customer Reviews -->
+                <div class="card customer-reviews">
+                    <h3><i class="fas fa-star"></i> Recent Reviews</h3>
+                    <div class="review-list">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="user-info">
+                                    <img src="user-avatar.jpg" alt="User">
+                                    <div>
+                                        <span class="user-name">Sarah M.</span>
+                                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                                    </div>
+                                </div>
+                                <span class="review-date">2 hours ago</span>
+                            </div>
+                            <p class="review-text">"The best jollof rice on campus! Always fresh and delicious."</p>
+                        </div>
+                        <!-- More reviews -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../shared/auth.js"></script>
+    <script src="vendor.js"></script>
+</body>
+</html>

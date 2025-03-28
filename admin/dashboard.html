@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<!-- Oladoyin Daniel Codes @08125268335 -->
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-cogs"></i> BSU Admin</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> User Management</a></li>
+                <li><a href="#"><i class="fas fa-store"></i> Vendor Management</a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> System Settings</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-content">
+            <header class="admin-header">
+                <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Admin">
+                    <span>System Admin</span>
+                </div>
+            </header>
+
+            <!-- Stats Cards -->
+            <section class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #4e73df;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Users</h3>
+                        <p>1,254</p>
+                        <span class="stat-trend up"><i class="fas fa-arrow-up"></i> 12%</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #1cc88a;">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Active Vendors</h3>
+                        <p>87</p>
+                        <span class="stat-trend up"><i class="fas fa-arrow-up"></i> 5%</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #36b9cc;">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Today's Orders</h3>
+                        <p>324</p>
+                        <span class="stat-trend down"><i class="fas fa-arrow-down"></i> 3%</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #f6c23e;">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Revenue</h3>
+                        <p>₦1,245,000</p>
+                        <span class="stat-trend up"><i class="fas fa-arrow-up"></i> 18%</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Row -->
+            <section class="charts-row">
+                <div class="chart-container">
+                    <h3><i class="fas fa-chart-line"></i> Monthly Transactions</h3>
+                    <canvas id="transactionsChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3><i class="fas fa-chart-pie"></i> User Distribution</h3>
+                    <canvas id="usersChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="recent-activity">
+                <h3><i class="fas fa-history"></i> Recent Activity</h3>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon success">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p>New vendor registration: <strong>Campus Burgers</strong></p>
+                            <small>10 minutes ago</small>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p>Order #4567 failed payment processing</p>
+                            <small>25 minutes ago</small>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon primary">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p>Admin <strong>Jane Doe</strong> updated system settings</p>
+                            <small>1 hour ago</small>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon info">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p>New product added by <strong>Campus Kitchen</strong></p>
+                            <small>2 hours ago</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Management Preview -->
+            <section class="user-management">
+                <h3><i class="fas fa-users-cog"></i> User Management</h3>
+                <div class="table-responsive">
+                    <table class="user-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1001</td>
+                                <td>
+                                    <div class="user-avatar">
+                                        <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="User">
+                                        <span>Mary Johnson</span>
+                                    </div>
+                                </td>
+                                <td>mary.j@bsu.edu</td>
+                                <td><span class="badge student">Student</span></td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <button class="btn-action edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-action suspend"><i class="fas fa-user-slash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2001</td>
+                                <td>
+                                    <div class="user-avatar">
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                                        <span>David Wilson</span>
+                                    </div>
+                                </td>
+                                <td>d.wilson@bsu.edu</td>
+                                <td><span class="badge vendor">Vendor</span></td>
+                                <td><span class="status pending">Pending</span></td>
+                                <td>
+                                    <button class="btn-action approve"><i class="fas fa-check"></i></button>
+                                    <button class="btn-action reject"><i class="fas fa-times"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3001</td>
+                                <td>
+                                    <div class="user-avatar">
+                                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="User">
+                                        <span>Sarah Miller</span>
+                                    </div>
+                                </td>
+                                <td>s.miller@bsu.edu</td>
+                                <td><span class="badge admin">Admin</span></td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <button class="btn-action edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-action view"><i class="fas fa-eye"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-footer">
+                    <button class="btn-view-all">View All Users</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../shared/auth.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

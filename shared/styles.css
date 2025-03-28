@@ -1,0 +1,123 @@
+:root {
+    --primary-color: #1a73e8;
+    --student-color: #4285f4;
+    --vendor-color: #34a853;
+    --admin-color: #673ab7;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Role Selector Page */
+.role-selector {
+    max-width: 800px;
+    margin: 5rem auto;
+    text-align: center;
+}
+
+.role-selector .btn {
+    display: block;
+    width: 300px;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    transition: transform 0.2s;
+}
+
+/*Oladoyin Daniel Codes @08125268335*/
+
+.role-selector .btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn.student { background-color: var(--student-color); color: white; }
+.btn.vendor { background-color: var(--vendor-color); color: white; }
+.btn.admin { background-color: var(--admin-color); color: white; }
+
+/* Authentication Containers */
+.auth-container {
+    max-width: 400px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .auth-container {
+        margin: 2rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .student-dashboard,
+    .vendor-dashboard,
+    .admin-dashboard {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-nav {
+        display: none; /* Mobile nav would need hamburger menu */
+    }
+    
+    .marketplace-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.demo-credentials {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #e3f2fd;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.demo-credentials h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.demo-credentials code {
+    background: rgba(0,0,0,0.1);
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+/*Oladoyin Daniel Codes @08125268335*/

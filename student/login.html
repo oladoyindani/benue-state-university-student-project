@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Login</title>
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="student.css">
+</head>
+<!-- Oladoyin Daniel Codes @08125268335 -->
+<body>
+    <div class="auth-container">
+       <form id="studentLogin" onsubmit="return studentAuth.login(event)">
+            <h2>Student Portal</h2>
+            <input type="email" name="identifier" placeholder="Student Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+	
+	   <div class="demo-credentials">
+    		<h3>Demo Student Account</h3>
+    		<p>Email: <code>student@bsu.edu</code></p>
+    		<p>Password: <code>student123</code></p>
+    		<small class="text-muted">This is a test account with student privileges</small>
+	   </div>
+    </div>
+    <script type="text/javascript">
+        const auth = new AuthSystem('student');
+
+        document.getElementById('studentLogin').addEventListener('submit', (e) => {
+            auth.login(e);
+        });
+    </script>
+    <script src="../shared/auth.js"></script>
+    <script src="student.js"></script>
+</body>
+</html>

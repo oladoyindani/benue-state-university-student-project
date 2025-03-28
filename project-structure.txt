@@ -1,0 +1,22 @@
+bsu-marketplace/
+├── shared/
+│   ├── styles.css
+│   └── auth.js
+├── student/
+│   ├── login.html
+│   ├── dashboard.html
+│   ├── student.css
+│   └── student.js
+├── vendor/
+│   ├── login.html
+│   ├── dashboard.html
+│   ├── vendor.css
+│   └── vendor.js
+├── admin/
+│   ├── login.html
+│   ├── dashboard.html
+│   ├── admin.css
+│   └── admin.js
+└── index.html
+
+Oladoyin Daniel writes
