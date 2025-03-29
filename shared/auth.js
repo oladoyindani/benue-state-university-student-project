@@ -67,14 +67,17 @@ class AuthSystem {
         }
     }
 
+    // auth.js (AuthSystem class)
     checkAuth() {
         const session = JSON.parse(localStorage.getItem('bsuAuth'));
-        
-        if(!session || session.role !== this.role || session.expires < Date.now()) {
-            localStorage.removeItem('bsuAuth');
-            // Path for redirection
-            window.location.href = `login.html`;
-            return false;
+        const isLoginPage = window.location.pathname.includes('login.html');
+    
+        if (!session || session.role !== this.role || session.expires < Date.now()) {
+        localStorage.removeItem('bsuAuth');
+        if (!isLoginPage) {
+            window.location.href = `${this.role}/login.html`; // Redirect only if not already on login
+        }
+        return false;
         }
         return true;
     }

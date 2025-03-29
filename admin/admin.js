@@ -1,4 +1,9 @@
-const adminAuth = new AuthSystem('admin');
+document.addEventListener('DOMContentLoaded', function() {
+    // Check authentication
+    if (!adminAuth.checkAuth()) return;
+    const adminAuth = new AuthSystem('admin');
+});
+
 
 // Oladoyin Daniel Codes @08125268335
 
