@@ -40,4 +40,8 @@ if(window.location.pathname.includes('dashboard.html')) {
     new AdminDashboard();
 }
 
+function logout() {
+    adminAuth.logout();
+}
+
 // Oladoyin Daniel Codes @08125268335
