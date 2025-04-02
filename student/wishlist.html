@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wishlist | BSU</title>
+    <!-- Same head -->
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <aside class="student-sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-user-graduate"></i> John Doe</h2>
+            <p class="matric-number">BSU/2021/001</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="marketplace.html"><i class="fas fa-store"></i> Marketplace</a>
+            <a href="orders.html"><i class="fas fa-shopping-cart"></i> My Orders</a>
+            <a href="wallet.html"><i class="fas fa-wallet"></i> Campus Wallet</a>
+            <a href="#wishlist" class="active"><i class="fas fa-heart"></i> Wishlist</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </aside>
+    <!-- Same sidebar/header -->
+    <main class="student-content">
+        <section class="wishlist-content">
+            <div class="wishlist-header">
+                <h2>Saved Items (3)</h2>
+                <button class="btn-clear">Clear All</button>
+            </div>
+
+            <div class="wishlist-grid">
+                <!-- Example Wishlist Item -->
+                <div class="wishlist-item">
+                    <img src="../assets/laptop.jpg" alt="Laptop">
+                    <div class="item-details">
+                        <h3>Used MacBook Air</h3>
+                        <p class="price">₦120,000</p>
+                        <div class="item-actions">
+                            <button class="btn-buy">Buy Now</button>
+                            <button class="btn-remove"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- More items... -->
+            </div>
+        </section>
+    </main>
+    <!-- Same scripts -->
+</body>
+</html>

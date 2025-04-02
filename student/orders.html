@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Orders | BSU</title>
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Same head as marketplace.html -->
+</head>
+<body>
+    <!-- Same sidebar/header as dashboard -->
+    <aside class="student-sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-user-graduate"></i> John Doe</h2>
+            <p class="matric-number">BSU/2021/001</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.hml"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="marketplace.html"><i class="fas fa-store"></i> Marketplace</a>
+            <a href="#orders" class="active"><i class="fas fa-shopping-cart"></i> My Orders</a>
+            <a href="wallet.html"><i class="fas fa-wallet"></i> Campus Wallet</a>
+            <a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </aside>
+
+    <main class="student-content">
+        <header class="student-header">
+            <!-- Header with wallet balance -->
+        </header>
+
+        <section class="orders-content">
+            <div class="order-filters">
+                <button class="filter-btn active">All Orders</button>
+                <button class="filter-btn">Pending</button>
+                <button class="filter-btn">Completed</button>
+            </div>
+
+            <div class="orders-list">
+                <!-- Example Order -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <span class="order-id">#ORD-2023-001</span>
+                        <span class="order-status pending">Pending</span>
+                    </div>
+                    <div class="order-items">
+                        <p>1 × Chemistry Textbook</p>
+                        <p>2 × Notebooks</p>
+                    </div>
+                    <div class="order-footer">
+                        <span class="order-total">₦7,500</span>
+                        <button class="btn-track">Track Order</button>
+                    </div>
+                </div>
+                <!-- More orders... -->
+            </div>
+        </section>
+    </main>
+    <!-- Same scripts -->
+</body>
+</html>

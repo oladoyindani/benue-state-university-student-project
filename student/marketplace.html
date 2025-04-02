@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marketplace | BSU</title>
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="student-container">
+        <!-- Sidebar (Same as dashboard) -->
+        <aside class="student-sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-user-graduate"></i> John Doe</h2>
+                <p class="matric-number">BSU/2021/001</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="#marketplace" class="active"><i class="fas fa-store"></i> Marketplace</a>
+                <a href="orders.html"><i class="fas fa-shopping-cart"></i> My Orders</a>
+                <a href="wallet.html"><i class="fas fa-wallet"></i> Campus Wallet</a>
+                <a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="student-content">
+            <header class="student-header">
+                <div class="header-info">
+                    <h1>Marketplace</h1>
+                    <div class="quick-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-coins"></i>
+                            <span>Wallet: ₦15,000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search items...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </header>
+
+            <!-- Marketplace Content -->
+            <section class="marketplace-content">
+                <div class="filters">
+                    <select id="category-filter">
+                        <option>All Categories</option>
+                        <option>Textbooks</option>
+                        <option>Electronics</option>
+                    </select>
+                    <select id="sort-by">
+                        <option>Sort by: Newest</option>
+                        <option>Price: Low to High</option>
+                    </select>
+                </div>
+
+                <div class="items-grid">
+                    <!-- Example Item (Populated by JS) -->
+                    <div class="item-card">
+                        <img src="../assets/textbook.jpg" alt="Chemistry Textbook">
+                        <h3>Chemistry 101 Textbook</h3>
+                        <p class="price">₦5,000</p>
+                        <div class="item-actions">
+                            <button class="btn-buy">Buy Now</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <!-- More items... -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../shared/auth.js"></script>
+    <script src="student.js"></script>
+</body>
+</html>
