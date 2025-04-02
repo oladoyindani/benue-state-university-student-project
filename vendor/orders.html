@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orders | Vendor</title>
+    <!-- Same head as inventory.html -->
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="vendor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <!-- Same sidebar -->
+
+    <aside class="vendor-sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-store"></i> Campus Kitchen</h2>
+            <p class="vendor-rating">⭐ 4.5 (128 reviews)</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="inventory.html"><i class="fas fa-boxes"></i> Inventory</a>
+            <a href="#orders.html" class="active"><i class="fas fa-shopping-cart"></i> Orders</a>
+            <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+            <a href="reviews.html"><i class="fas fa-comments"></i> Reviews</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </aside>
+
+
+    <main class="vendor-content">
+        <header class="vendor-header">
+            <div class="header-info">
+                <h1>Order Management</h1>
+                <p class="current-balance">15 pending orders</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-primary" id="print-orders">
+                    <i class="fas fa-print"></i> Print Today's Orders
+                </button>
+            </div>
+        </header>
+
+        <section class="orders-content">
+            <div class="order-filters">
+                <div class="filter-group">
+                    <button class="filter-btn active">All (45)</button>
+                    <button class="filter-btn">Pending (15)</button>
+                    <button class="filter-btn">Processing (8)</button>
+                    <button class="filter-btn">Completed (22)</button>
+                </div>
+                <div class="date-filter">
+                    <input type="date" id="start-date">
+                    <span>to</span>
+                    <input type="date" id="end-date">
+                    <button class="btn-primary">Apply</button>
+                </div>
+            </div>
+
+            <div class="card order-list">
+                <div class="order-item urgent">
+                    <div class="order-header">
+                        <div>
+                            <span class="order-id">#ORD-2023-105</span>
+                            <span class="customer">John Doe (BSU/2021/001)</span>
+                        </div>
+                        <span class="order-time">Today, 12:45 PM</span>
+                    </div>
+                    <div class="order-body">
+                        <div class="items-list">
+                            <div class="item">
+                                <span>Jollof Rice ×2</span>
+                                <span>₦1,000</span>
+                            </div>
+                            <div class="item">
+                                <span>Bottled Water ×1</span>
+                                <span>₦200</span>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <div class="order-total">
+                                <span>Total: ₦1,200</span>
+                                <small>Paid via Campus Wallet</small>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn-outline"><i class="fas fa-phone"></i> Call</button>
+                                <button class="btn-primary">Process Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- More orders -->
+            </div>
+        </section>
+    </main>
+    <!-- Same scripts -->
+</body>
+</html>

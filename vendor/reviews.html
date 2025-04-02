@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reviews | Vendor</title>
+    <!-- Same head -->
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="vendor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Same sidebar -->
+    <aside class="vendor-sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-store"></i> Campus Kitchen</h2>
+            <p class="vendor-rating">⭐ 4.5 (128 reviews)</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="inventory.html"><i class="fas fa-boxes"></i> Inventory</a>
+            <a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a>
+            <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+            <a href="#reviews.html" class="active"><i class="fas fa-comments"></i> Reviews</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </aside>
+    <main class="vendor-content">
+        <header class="vendor-header">
+            <div class="header-info">
+                <h1>Customer Reviews</h1>
+                <div class="rating-summary">
+                    <span class="average-rating">4.5</span>
+                    <div class="stars">
+                        ⭐⭐⭐⭐⭐
+                        <small>(128 reviews)</small>
+                    </div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <select id="review-filter">
+                    <option>All Reviews</option>
+                    <option>5 Stars</option>
+                    <option>4 Stars</option>
+                    <option>3 Stars</option>
+                </select>
+            </div>
+        </header>
+
+        <section class="reviews-content">
+            <div class="card review-list">
+                <div class="review-item featured">
+                    <div class="review-header">
+                        <div class="user-info">
+                            <img src="../assets/user-avatar.jpg" alt="Sarah M.">
+                            <div>
+                                <span class="user-name">Sarah M.</span>
+                                <div class="rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <span class="review-date">2 hours ago</span>
+                    </div>
+                    <p class="review-text">"The best jollof rice on campus! Always fresh and delicious. The delivery is super fast too."</p>
+                    <div class="review-meta">
+                        <span class="order-reference">Order #ORD-2023-087</span>
+                        <button class="btn-reply"><i class="fas fa-reply"></i> Reply</button>
+                    </div>
+                </div>
+                <!-- More reviews -->
+            </div>
+        </section>
+    </main>
+    <!-- Same scripts -->
+</body>
+</html>
