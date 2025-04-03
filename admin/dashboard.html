@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../shared/styles.css">
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
@@ -12,17 +13,20 @@
 <body>
     <div class="admin-container">
         <!-- Sidebar -->
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
         <aside class="admin-sidebar">
             <div class="sidebar-header">
                 <h2><i class="fas fa-cogs"></i> BSU Admin</h2>
             </div>
             <ul class="sidebar-menu">
                 <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                <li><a href="#"><i class="fas fa-users"></i> User Management</a></li>
-                <li><a href="#"><i class="fas fa-store"></i> Vendor Management</a></li>
-                <li><a href="#"><i class="fas fa-shopping-cart"></i> Orders</a></li>
-                <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
-                <li><a href="#"><i class="fas fa-cog"></i> System Settings</a></li>
+                <li><a href="user-management.html"><i class="fas fa-users"></i> User Management</a></li>
+                <li><a href="vendor-management.html"><i class="fas fa-store"></i> Vendor Management</a></li>
+                <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                <li><a href="system-settings.html"><i class="fas fa-cog"></i> System Settings</a></li>
             </ul>
             <div class="sidebar-footer">
                 <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
@@ -218,6 +222,11 @@
         </main>
     </div>
 
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.admin-sidebar').classList.toggle('active');
+        });
+    </script>
     <script src="../shared/auth.js"></script>
     <script src="admin.js"></script>
 </body>

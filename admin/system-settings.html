@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Settings | Admin</title>
+    <!-- Same head -->
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Same sidebar -->
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-cogs"></i> BSU Admin</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="user-management.html"><i class="fas fa-users"></i> User Management</a></li>
+            <li><a href="vendor-management.html"><i class="fas fa-store"></i> Vendor Management</a></li>
+            <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+            <li><a href="#analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+            <li class="active"><a href="#system-settings.html"><i class="fas fa-cog"></i> System Settings</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </aside>
+
+
+    <main class="admin-content">
+        <header class="admin-header">
+            <h1><i class="fas fa-cog"></i> System Settings</h1>
+            <div class="header-actions">
+                <button class="btn-primary" id="save-settings">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+            </div>
+        </header>
+
+        <section class="settings-content">
+            <div class="settings-tabs">
+                <button class="tab-btn active" data-tab="general">General</button>
+                <button class="tab-btn" data-tab="payment">Payment</button>
+                <button class="tab-btn" data-tab="notifications">Notifications</button>
+                <button class="tab-btn" data-tab="security">Security</button>
+            </div>
+
+            <div class="tab-content active" id="general-tab">
+                <div class="setting-group">
+                    <h3><i class="fas fa-university"></i> Institution Settings</h3>
+                    <div class="form-group">
+                        <label>Institution Name</label>
+                        <input type="text" value="Bingham University">
+                    </div>
+                    <div class="form-group">
+                        <label>Academic Session</label>
+                        <input type="text" value="2023/2024">
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <h3><i class="fas fa-calendar-alt"></i> System Schedule</h3>
+                    <div class="form-group">
+                        <label>Marketplace Opening Time</label>
+                        <input type="time" value="08:00">
+                    </div>
+                    <div class="form-group">
+                        <label>Marketplace Closing Time</label>
+                        <input type="time" value="20:00">
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="payment-tab">
+                <!-- Payment settings content -->
+            </div>
+        </section>
+    </main>
+    <!-- Same scripts -->
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.admin-sidebar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

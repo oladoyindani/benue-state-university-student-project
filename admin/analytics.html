@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics | Admin</title>
+    <!-- Same head + Chart.js -->
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chartjs-plugin-datalabels.min.js"></script>
+</head>
+<body>
+    <!-- Same sidebar -->
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-cogs"></i> BSU Admin</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="user-management.html"><i class="fas fa-users"></i> User Management</a></li>
+            <li><a href="vendor-management.html"><i class="fas fa-store"></i> Vendor Management</a></li>
+            <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+            <li class="active"><a href="#analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+            <li><a href="system-settings.html"><i class="fas fa-cog"></i> System Settings</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </aside>
+
+
+    <main class="admin-content">
+        <header class="admin-header">
+            <h1><i class="fas fa-chart-line"></i> System Analytics</h1>
+            <div class="header-actions">
+                <select id="time-period">
+                    <option>Last 7 Days</option>
+                    <option selected>Last 30 Days</option>
+                    <option>This Quarter</option>
+                </select>
+                <button class="btn-primary">
+                    <i class="fas fa-file-export"></i> Export Report
+                </button>
+            </div>
+        </header>
+
+        <section class="analytics-content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>New Users</h3>
+                        <p>142</p>
+                        <span class="stat-trend up"><i class="fas fa-arrow-up"></i> 12%</span>
+                    </div>
+                </div>
+                <!-- More stat cards -->
+            </div>
+
+            <div class="chart-grid">
+                <div class="card chart-card">
+                    <h3><i class="fas fa-chart-bar"></i> User Growth</h3>
+                    <canvas id="userGrowthChart"></canvas>
+                </div>
+                <div class="card chart-card">
+                    <h3><i class="fas fa-chart-pie"></i> Vendor Categories</h3>
+                    <canvas id="vendorCategoriesChart"></canvas>
+                </div>
+                <div class="card chart-card">
+                    <h3><i class="fas fa-chart-line"></i> Revenue Trend</h3>
+                    <canvas id="revenueTrendChart"></canvas>
+                </div>
+                <div class="card chart-card">
+                    <h3><i class="fas fa-map-marked-alt"></i> User Locations</h3>
+                    <div class="map-placeholder">
+                        <i class="fas fa-map"></i>
+                        <span>Map Visualization</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Same scripts -->
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.admin-sidebar').classList.toggle('active');
+        });
+    </script>
+    <script src="../shared/scripts.js"></script>
+</body>
+</html>

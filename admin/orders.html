@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Management | Admin</title>
+    <!-- Same head -->
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Same sidebar -->
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-cogs"></i> BSU Admin</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="user-management.html"><i class="fas fa-users"></i> User Management</a></li>
+            <li><a href="vendor-management.html"><i class="fas fa-store"></i> Vendor Management</a></li>
+            <li class="active"><a href="#orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+            <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+            <li><a href="system-settings.html"><i class="fas fa-cog"></i> System Settings</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </aside>
+
+
+    <main class="admin-content">
+        <header class="admin-header">
+            <h1><i class="fas fa-shopping-cart"></i> Order Management</h1>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <span class="stat-value">42</span>
+                        <span class="stat-label">Pending</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <span class="stat-value">128</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-times-circle"></i>
+                    <div>
+                        <span class="stat-value">5</span>
+                        <span class="stat-label">Cancelled</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="management-content">
+            <div class="filters">
+                <div class="filter-group">
+                    <label>Date Range:</label>
+                    <input type="date" id="start-date">
+                    <span>to</span>
+                    <input type="date" id="end-date">
+                    <select>
+                        <option>All Statuses</option>
+                        <option>Pending</option>
+                        <option>Processing</option>
+                        <option>Completed</option>
+                    </select>
+                    <button class="btn-primary">Apply</button>
+                </div>
+            </div>
+
+            <div class="card order-list">
+                <div class="order-item">
+                    <div class="order-header">
+                        <div>
+                            <span class="order-id">#ORD-2023-105</span>
+                            <span class="customer">John Doe (BSU/2021/001)</span>
+                        </div>
+                        <span class="order-time">Today, 12:45 PM</span>
+                    </div>
+                    <div class="order-body">
+                        <div class="order-details">
+                            <div class="vendor-info">
+                                <img src="../assets/campus-kitchen.jpg" alt="Vendor">
+                                <span>Campus Kitchen</span>
+                            </div>
+                            <div class="items-list">
+                                <div class="item">
+                                    <span>Jollof Rice ×2</span>
+                                    <span>₦1,000</span>
+                                </div>
+                                <div class="item">
+                                    <span>Bottled Water ×1</span>
+                                    <span>₦200</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <div class="order-total">
+                                <span>Total: ₦1,200</span>
+                                <small>Paid via Campus Wallet</small>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn-outline">View Details</button>
+                                <button class="btn-primary">Process</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- More orders -->
+            </div>
+        </section>
+    </main>
+    <!-- Same scripts -->
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.admin-sidebar').classList.toggle('active');
+        });
+    </script>
+    <script src="../shared/scripts.js"></script>
+</body>
+</html>
