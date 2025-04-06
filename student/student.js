@@ -183,30 +183,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
         items.forEach(item => {
             const title = item.querySelector('h3').textContent.toLowerCase();
+            const description = item.dataset.description.toLowerCase();
             const itemCategory = getItemCategory(item);
 
-            // Check both search and category matches
-            const searchMatch = title.includes(searchTerm);
+            // Check matches
+            const textMatch = title.includes(searchTerm) || description.includes(searchTerm);
             const categoryMatch = selectedCategory === 'All Categories' || itemCategory === selectedCategory;
 
-            item.style.display = (searchMatch && categoryMatch) ? 'block' : 'none';
+            item.style.display = (textMatch && categoryMatch) ? 'block' : 'none';
         });
     }
 
-    // Determine item category from content
+    // Improved category detection
     function getItemCategory(item) {
-        const title = item.querySelector('h3').textContent;
-        if (title.includes('Textbook')) return 'Textbooks';
-        if (title.includes('Rice') || title.includes('Chicken') || 
-           title.includes('Soup') || title.includes('Plantain') || 
-           title.includes('Eggs') || title.includes('Fried')) return 'Food';
-        if (title.includes('Laptop') || title.includes('Macbook')) return 'Electronics/Laptops';
+        const categoryKeywords = {
+            'Textbooks': ['textbook', 'education', 'management', 'foundation'],
+            'Food': ['rice', 'chicken', 'soup', 'plantain', 'eggs', 'fried', 'oha', 'semo'],
+            'Electronics/Laptops': ['laptop', 'macbook', 'hp', 'electronics']
+        };
+
+        const title = item.querySelector('h3').textContent.toLowerCase();
+        const description = item.dataset.description.toLowerCase();
+
+        // Check all possible category matches
+        for (const [category, keywords] of Object.entries(categoryKeywords)) {
+            if (keywords.some(keyword => 
+                title.includes(keyword) || description.includes(keyword)
+            )) {
+                return category;
+            }
+        }
+
         return 'Other';
     }
 
-    // Event listeners for both filters
+    // Event listeners
     searchInput.addEventListener('input', filterItems);
     categoryFilter.addEventListener('change', filterItems);
-});
 
+    // Initial filter
+    filterItems();
+});
 // Oladoyin Daniel Codes @08125268335

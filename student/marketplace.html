@@ -5,6 +5,86 @@
     <link rel="stylesheet" href="../shared/styles.css">
     <link rel="stylesheet" href="student.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            width: 60%;
+            max-width: 600px;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-body img {
+            max-width: 100%;
+            max-height: 300px;
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 4px;
+        }
+
+        #modalTitle {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        #modalPrice {
+            font-size: 1.2em;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        #modalDescription {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        #modalVendor {
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        /* Make modal responsive */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 90%;
+                margin: 10% auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="student-container">
@@ -26,7 +106,6 @@
             </div>
         </aside>
 
-        <!-- Oladoyin Daniel Codes @08125268335 -->
         <!-- Main Content -->
         <main class="student-content">
             <header class="student-header">
@@ -61,8 +140,10 @@
                 </div>
 
                 <div class="items-grid">
-                    <!-- Oladoyin Daniel Codes @08125268335-->
-                    <div class="item-card">
+                    <!-- Item Cards with data attributes -->
+                    <div class="item-card" 
+                         data-description="Essential textbook for Chemistry 101 course. Covers all topics required for the semester. Brand new condition with no markings."
+                         data-vendor="Prof. Johnson (Chemistry Department)">
                         <img src="https://m.media-amazon.com/images/I/A1+A-2XwQVL.jpg" alt="Chemistry Textbook">
                         <h3>Chemistry 101 Textbook</h3>
                         <p class="price">₦5,000</p>
@@ -72,8 +153,10 @@
                         </div>
                     </div>
 
-                    <div class="item-card">
-                        <img src="data:image/jpeg;base64,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" alt="Rice and Chicken">
+                    <div class="item-card" 
+                         data-description="Delicious plate of jollof rice with fried chicken and salad. Freshly prepared daily. Available for lunch and dinner."
+                         data-vendor="BSU Cafeteria (Main Campus)">
+                        <img src="https://www.skinnytaste.com/wp-content/uploads/2024/05/Coconut-Chicken-Rice-Bowls-10.jpg" alt="Rice and Chicken">
                         <h3>Rice and Chicken</h3>
                         <p class="price">₦7,000</p>
                         <div class="item-actions">
@@ -82,7 +165,9 @@
                         </div>
                     </div>
 
-                    <div class="item-card">
+                    <div class="item-card" 
+                         data-description="HP Pavilion 15.6-inch laptop, Intel Core i5, 8GB RAM, 256GB SSD. Lightly used for 6 months with original packaging and accessories."
+                         data-vendor="David Okeke (Computer Science Student)">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNzglpwWndPKcZ0DI2W-qQDnuywhv93z2dfA&s" alt="Hp Laptop">
                         <h3>Hp Laptop</h3>
                         <p class="price">₦500,000</p>
@@ -92,9 +177,9 @@
                         </div>
                     </div>
 
-                    <!-- Oladoyin Daniel Codes @08125268335 -->
-                    
-                    <div class="item-card">
+                    <div class="item-card" 
+                         data-description="MacBook Pro 13-inch 2020 model, M1 chip, 16GB RAM, 512GB SSD. Includes original charger and protective case."
+                         data-vendor="Sarah Williams (Graduate Student)">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpQZ_PcmsDhN4emM1aZftV42wch2lSS0-hvw&s" alt="Macbook Pro">
                         <h3>Macbook Pro</h3>
                         <p class="price">₦1,500,000</p>
@@ -104,7 +189,9 @@
                         </div>
                     </div>
 
-                    <div class="item-card">
+                    <div class="item-card" 
+                         data-description="Comprehensive guide to educational foundations. Perfect for education majors. Includes practice questions and summaries."
+                         data-vendor="Dr. Adebayo (Education Department)">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqxM9kaFRE9gXDgdZNi-cAzkomg_oGzxy22w&s" alt="Educational Foundation Textbook">
                         <h3>Educational Foundation 101 Textbook</h3>
                         <p class="price">₦5,000</p>
@@ -114,7 +201,9 @@
                         </div>
                     </div>
 
-                    <div class="item-card">
+                    <div class="item-card" 
+                         data-description="Essential reading for education management students. Highlighted in some sections but otherwise in good condition."
+                         data-vendor="Michael Brown (Postgraduate Student)">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvCjQIu8B1Khd4bmGIJzhYJRNKxOp3V_AK6g&s" alt="Educational Management Textbook">
                         <h3>Educational Management 101 Textbook</h3>
                         <p class="price">₦5,000</p>
@@ -124,7 +213,9 @@
                         </div>
                     </div>
 
-                    <div class="item-card">
+                    <div class="item-card" 
+                         data-description="Authentic Oha soup with assorted meat and fish. Prepared with fresh ingredients. Serves 2-3 people."
+                         data-vendor="Aunty Grace's Kitchen (Off Campus)">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_SXlwowdDFwII5EKxPHX3DdVy5LENR5GATg&s" alt="Oha Soup with fish">
                         <h3>Oha Soup with fish</h3>
                         <p class="price">₦15,000</p>
@@ -133,10 +224,10 @@
                             <button class="btn-wishlist"><i class="far fa-heart"></i></button>
                         </div>
                     </div>
-        
-                    <!-- Oladoyin Daniel Codes @08125268335 -->
-        
-                    <div class="item-card">
+
+                    <div class="item-card" 
+                         data-description="Delicious semo with ogbono soup and chicken. Comes with assorted meat. Available for delivery on campus."
+                         data-vendor="Campus Eats (Student Run Business)">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqG8A848SBkvp-thlIa5xjb07sMelReQia4g&s" alt="Semo and Ognbono with chicken">
                         <h3>Semo and Ognbono with chicken</h3>
                         <p class="price">₦15,000</p>
@@ -146,7 +237,9 @@
                         </div>
                     </div>
 
-                    <div class="item-card">
+                    <div class="item-card" 
+                         data-description="Fried plantain with scrambled eggs. Perfect breakfast option. Available Monday-Friday 7am-10am."
+                         data-vendor="BSU Breakfast Spot (Student Union Building)">
                         <img src="https://i.ytimg.com/vi/LsMyfQP7kzE/sddefault.jpg" alt="Plantain and Eggs">
                         <h3>Plantain and Eggs</h3>
                         <p class="price">₦5,000</p>
@@ -156,7 +249,9 @@
                         </div>
                     </div>
 
-                    <div class="item-card">
+                    <div class="item-card" 
+                         data-description="Special fried rice with turkey and fried plantain. Family size portion that serves 3-4 people."
+                         data-vendor="Chicken Republic (Campus Branch)">
                         <img src="https://www.chicken-republic.com/wp-content/uploads/2021/09/2-REFUEL-FRIED-RICE-MEAL.jpg" alt="Fried Rice and Turkey with Plantain">
                         <h3>Fried Rice and Turkey with Plantain</h3>
                         <p class="price">₦25,000</p>
@@ -165,13 +260,75 @@
                             <button class="btn-wishlist"><i class="far fa-heart"></i></button>
                         </div>
                     </div>
-                    <!-- More items... -->
                 </div>
             </section>
         </main>
     </div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="">
+                <h2 id="modalTitle"></h2>
+                <p class="price" id="modalPrice"></p>
+                <p id="modalDescription"></p>
+                <p><strong>Vendor:</strong> <span id="modalVendor"></span></p>
+            </div>
+        </div>
+    </div>
+
     <script src="../shared/auth.js"></script>
     <script src="student.js"></script>
-    <!-- Oladoyin Daniel Codes @08125268335 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get modal elements
+            const modal = document.getElementById('productModal');
+            const closeBtn = document.querySelector('.close');
+            
+            // Add click handlers to all item cards
+            document.querySelectorAll('.item-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    // Don't trigger modal if clicking on buttons inside the card
+                    if (e.target.classList.contains('btn-buy') || 
+                        e.target.classList.contains('btn-wishlist') ||
+                        e.target.closest('.btn-buy') || 
+                        e.target.closest('.btn-wishlist')) {
+                        return;
+                    }
+
+                    // Get product data
+                    const title = card.querySelector('h3').textContent;
+                    const price = card.querySelector('.price').textContent;
+                    const imgSrc = card.querySelector('img').src;
+                    const description = card.dataset.description;
+                    const vendor = card.dataset.vendor;
+
+                    // Update modal content
+                    document.getElementById('modalTitle').textContent = title;
+                    document.getElementById('modalPrice').textContent = price;
+                    document.getElementById('modalImage').src = imgSrc;
+                    document.getElementById('modalImage').alt = title;
+                    document.getElementById('modalDescription').textContent = description;
+                    document.getElementById('modalVendor').textContent = vendor;
+
+                    // Show modal
+                    modal.style.display = 'block';
+                });
+            });
+
+            // Close modal handlers
+            closeBtn.addEventListener('click', () => modal.style.display = 'none');
+            window.addEventListener('click', (e) => {
+                if(e.target === modal) modal.style.display = 'none';
+            });
+        });
+
+        function logout() {
+            // Your logout functionality
+            console.log("Logging out...");
+        }
+    </script>
 </body>
 </html>
