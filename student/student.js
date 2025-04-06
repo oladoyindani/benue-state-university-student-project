@@ -170,3 +170,43 @@ function logout() {
 }
 
 // Oladoyin Daniel Codes @08125268335
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('.search-bar input');
+    const categoryFilter = document.getElementById('category-filter');
+    const items = document.querySelectorAll('.item-card');
+
+    // Combined filter function
+    function filterItems() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const selectedCategory = categoryFilter.value;
+
+        items.forEach(item => {
+            const title = item.querySelector('h3').textContent.toLowerCase();
+            const itemCategory = getItemCategory(item);
+
+            // Check both search and category matches
+            const searchMatch = title.includes(searchTerm);
+            const categoryMatch = selectedCategory === 'All Categories' || itemCategory === selectedCategory;
+
+            item.style.display = (searchMatch && categoryMatch) ? 'block' : 'none';
+        });
+    }
+
+    // Determine item category from content
+    function getItemCategory(item) {
+        const title = item.querySelector('h3').textContent;
+        if (title.includes('Textbook')) return 'Textbooks';
+        if (title.includes('Rice') || title.includes('Chicken') || 
+           title.includes('Soup') || title.includes('Plantain') || 
+           title.includes('Eggs') || title.includes('Fried')) return 'Food';
+        if (title.includes('Laptop') || title.includes('Macbook')) return 'Electronics/Laptops';
+        return 'Other';
+    }
+
+    // Event listeners for both filters
+    searchInput.addEventListener('input', filterItems);
+    categoryFilter.addEventListener('change', filterItems);
+});
+
+// Oladoyin Daniel Codes @08125268335
